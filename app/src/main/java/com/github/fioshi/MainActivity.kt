@@ -31,5 +31,11 @@ class MainActivity : AppCompatActivity() {
             itemsAdapter.addItem(item)
         }
 
+        val item = ItemModel(
+            name = editText.text.toString(),
+            onRemove = {
+                itemsAdapter.removeItem(it)
+            }
+        )
     }
 }
