@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
 
-    private val items = mutableListOf<ItemModel>()
+    private var items = listOf<ItemModel>()
+
 
     //Responsavel pela visualização;
     class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -27,8 +28,6 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
         }
     }
 
-
-
     //override simboliza o polimorfismo
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -44,13 +43,8 @@ class ItemsAdapter : RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
         holder.bind(item)
     }
 
-    fun addItem(newItem: ItemModel) {
-        items.add(newItem)
-        notifyDataSetChanged()
-    }
-
-    fun removeItem(item: ItemModel) {
-        items.remove(item)
+    fun updateItems(newItems: List<ItemModel>) {
+        items = newItems
         notifyDataSetChanged()
     }
 }
